@@ -1,0 +1,27 @@
+2020-02-24 08:51:09,859 INFO getting app erpnext
+2020-02-24 08:51:09,869 INFO git clone -q https://github.com/frappe/erpnext --branch version-12 --depth 1 --origin upstream
+2020-02-24 08:51:18,877 INFO installing erpnext
+2020-02-24 08:51:18,877 INFO ./env/bin/pip install -q -U -e ./apps/erpnext 
+2020-02-24 08:52:24,648 INFO bench build --app erpnext
+2020-02-24 08:57:04,988 INFO sudo /usr/bin/supervisorctl reread
+2020-02-24 08:57:05,229 INFO sudo /usr/bin/supervisorctl update
+2020-02-24 08:57:05,489 INFO sudo systemctl reload nginx
+2020-02-24 08:57:12,389 INFO sudo supervisorctl restart frappe-bench-workers: frappe-bench-web:
+2020-02-24 09:56:59,663 INFO getting app erpnext_helper
+2020-02-24 09:56:59,671 INFO git clone -q https://github.com/gavindsouza/erpnext_helper  --depth 1 --origin upstream
+2020-02-24 09:57:11,498 INFO installing erpnext_helper
+2020-02-24 09:57:11,499 INFO ./env/bin/pip install -q -U -e ./apps/erpnext_helper 
+2020-02-24 09:57:13,451 INFO bench build --app erpnext_helper
+2020-02-24 09:57:17,885 INFO sudo supervisorctl restart frappe-bench-workers: frappe-bench-web:
+2020-02-24 10:05:40,785 INFO sudo supervisorctl restart frappe-bench-workers: frappe-bench-web:
+2020-10-07 11:47:06,911 INFO Updating bench
+2020-10-07 11:47:06,912 INFO git pull
+2020-10-07 11:47:16,386 INFO Bench Updated!
+2020-10-15 07:02:24,333 INFO Getting app frappe
+2020-10-15 07:02:24,333 INFO Getting app frappe
+2020-10-15 07:02:33,352 INFO installing frappe
+2020-10-15 07:02:33,352 INFO installing frappe
+2020-10-15 07:04:08,174 INFO setting up backups
+2020-10-15 07:04:08,174 INFO setting up backups
+2020-11-17 07:43:32,889 INFO creating new app meeting
+2020-11-17 07:45:43,662 INFO installing meeting

@@ -1,0 +1,21 @@
+[DEBUG] 2021-02-20 07:52:58,894 | /home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py:
+Site: site1.local
+Queued events for site site1.local
+[DEBUG] 2021-02-20 07:53:58,970 | /home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py:
+Site: meeting.dev
+Access denied for site meeting.dev
+[DEBUG] 2021-02-20 07:53:59,012 | /home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py:
+Site: site1.local
+Queued events for site site1.local
+[DEBUG] 2021-02-20 07:54:59,087 | /home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py:
+Site: meeting.dev
+Access denied for site meeting.dev
+[DEBUG] 2021-02-20 07:54:59,166 | /home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py:
+Site: site1.local
+Queued events for site site1.local
+[DEBUG] 2021-02-20 07:55:59,242 | /home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py:
+Site: meeting.dev
+Access denied for site meeting.dev
+[DEBUG] 2021-02-20 07:55:59,285 | /home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py:
+Site: site1.local
+Queued events for site site1.local

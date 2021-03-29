@@ -1,0 +1,6 @@
+{
+    "js/erpnext_helper.js": [
+        "public/js/toolbar.js",
+        "public/js/email_notice.js"
+    ]
+}

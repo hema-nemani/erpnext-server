@@ -1,0 +1,140 @@
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 177, in _read_from_socket
+    raise socket.error(SERVER_CLOSED_CONNECTION_ERROR)
+OSError: Connection closed by server.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 668, in execute_command
+    return self.parse_response(connection, command_name, **options)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 680, in parse_response
+    response = connection.read_response()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 624, in read_response
+    response = self._parser.read_response()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 284, in read_response
+    response = self._buffer.readline()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 216, in readline
+    self._read_from_socket()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 191, in _read_from_socket
+    (e.args,))
+redis.exceptions.ConnectionError: Error while reading from socket: ('Connection closed by server.',)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+    sock = self._connect()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+    raise err
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/usr/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 97, in <module>
+    main()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 18, in main
+    click.Group(commands=commands)(prog_name='bench')
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 764, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 717, in main
+    rv = self.invoke(ctx)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 956, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 555, in invoke
+    return callback(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/commands/scheduler.py", line 154, in start_scheduler
+    start_scheduler()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 52, in start_scheduler
+    schedule.run_pending()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/schedule/__init__.py", line 563, in run_pending
+    default_scheduler.run_pending()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/schedule/__init__.py", line 94, in run_pending
+    self._run_job(job)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/schedule/__init__.py", line 147, in _run_job
+    ret = job.run()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/schedule/__init__.py", line 466, in run
+    ret = self.job_func()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 63, in enqueue_events_for_all_sites
+    jobs_per_site = get_jobs()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/background_jobs.py", line 168, in get_jobs
+    for job in q.jobs:
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/rq/queue.py", line 166, in jobs
+    return self.get_jobs()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/rq/queue.py", line 155, in get_jobs
+    job_ids = self.get_job_ids(offset, length)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/rq/queue.py", line 151, in get_job_ids
+    self.connection.lrange(self.key, start, end)]
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 1347, in lrange
+    return self.execute_command('LRANGE', name, start, end)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:11000. Connection refused.
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/usr/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 97, in <module>
+    main()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 18, in main
+    click.Group(commands=commands)(prog_name='bench')
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 764, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 717, in main
+    rv = self.invoke(ctx)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 956, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 555, in invoke
+    return callback(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/commands/scheduler.py", line 154, in start_scheduler
+    start_scheduler()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 52, in start_scheduler
+    schedule.run_pending()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/schedule/__init__.py", line 563, in run_pending
+    default_scheduler.run_pending()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/schedule/__init__.py", line 94, in run_pending
+    self._run_job(job)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/schedule/__init__.py", line 147, in _run_job
+    ret = job.run()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/schedule/__init__.py", line 466, in run
+    ret = self.job_func()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 62, in enqueue_events_for_all_sites
+    with frappe.init_site():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 244, in __enter__
+    init(self.site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 174, in init
+    setup_module_map()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 995, in setup_module_map
+    for module in get_module_list(app):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 865, in get_module_list
+    return get_file_items(os.path.join(os.path.dirname(get_module(app_name).__file__), "modules.txt"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 823, in get_module
+    return importlib.import_module(modulename)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'meeting'

@@ -1,0 +1,96 @@
+[ERROR] 2021-02-19 07:19:50,867 | /home/frappe/frappe-bench/apps/frappe/frappe/app.py:
+Site: site1.local
+Form Dict: {
+ "action": "Save",
+ "cmd": "frappe.desk.form.save.savedocs",
+ "doc": "{\"docstatus\":0,\"doctype\":\"Item\",\"name\":\"New Item 1\",\"__islocal\":1,\"__unsaved\":1,\"owner\":\"works@f9tech.com\",\"naming_series\":\"STO-ITEM-.YYYY.-\",\"is_stock_item\":1,\"purchase_in_months\":\"12\",\"manufacturing_date\":\"2020\",\"buying_tax\":\"5%\",\"selling1_tax\":\"5%\",\"bgl_selling2_tax\":\"5%\",\"vendor_location\":\"VZM\",\"valuation_method\":\"\",\"location\":\"WH01\",\"default_material_request_type\":\"Purchase\",\"has_batch_no\":0,\"create_new_batch\":0,\"has_expiry_date\":0,\"retain_sample\":0,\"has_serial_no\":0,\"has_variants\":0,\"variant_based_on\":\"Item Attribute\",\"is_purchase_item\":1,\"min_order_qty\":0,\"is_customer_provided_item\":0,\"country_of_origin\":\"India\",\"inspection_required_before_purchase\":0,\"inspection_required_before_delivery\":0,\"is_sub_contracted_item\":0,\"show_in_website\":0,\"show_variant_in_website\":0,\"publish_in_hub\":0,\"synced_with_hub\":0,\"item_name\":\"sample\",\"make\":\"red\",\"model\":\"blue\",\"size\":\"green\",\"capacity\":\"black\",\"attribute_5\":\"whtie\",\"schedule_date\":\"2021-02-19\",\"item_code\":\"sample13\",\"description\":\"sample13\",\"standard_rate\":9564,\"item_group\":\"KITCHEN TOOLS\",\"item_sub_sub_group_for_kitchen_tools\":\"HAMAN DASTA\",\"gst_hsn_code\":\"999900\",\"stock_uom\":\"Unit\",\"opening_stock\":987,\"brand\":\"Hawkins\",\"bay_no_shelf_number\":\"78\",\"at_sales\":1,\"sales_warrenty_period\":[{\"docstatus\":0,\"doctype\":\"At Sales Table\",\"name\":\"New At Sales Table 1\",\"__islocal\":1,\"__unsaved\":1,\"owner\":\"works@f9tech.com\",\"sales_description\":\"Body\",\"time_period\":\"12\",\"parent\":\"New Item 1\",\"parentfield\":\"sales_warrenty_period\",\"parenttype\":\"Item\",\"idx\":1,\"__unedited\":true}],\"at_purchase\":1,\"no_of_qty\":\"25\",\"time_left_for_expiry\":\"65\",\"basic_price\":\"50\",\"cost_price\":52.5,\"mrp_pm_downwards\":31.034482758620683,\"profit_margin\":\"45\",\"selling_price_without_tax\":72.5,\"selling1_tax_amount\":3.625,\"selling_price_with_tax\":76.125,\"bgl_profit_margin\":\"85\",\"bgl_selling_price_without_tax\":92.5,\"selling2_tax_amount\":4.625,\"bgl_selling_price_with_tax\":97.125,\"bgl_pm_downwards\":45.945945945945944,\"qty\":\"6\",\"click_on_installation\":0,\"vendor_name\":\"Hema\",\"item_defaults\":[{\"docstatus\":0,\"doctype\":\"Item Default\",\"name\":\"New Item Default 1\",\"__islocal\":1,\"__unsaved\":1,\"owner\":\"works@f9tech.com\",\"parent\":\"New Item 1\",\"parentfield\":\"item_defaults\",\"parenttype\":\"Item\",\"idx\":1,\"__unedited\":false,\"company\":\"BGL Stores\"}]}"
+}
+Request Error
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 22, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 61, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1051, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 296, in _save
+    self.insert()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 245, in insert
+    self.db_insert()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/base_document.py", line 324, in db_insert
+    ), list(d.values()))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database/database.py", line 156, in sql
+    self._cursor.execute(query, values)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'barcode' in 'field list'")
+[ERROR] 2021-02-19 07:31:02,680 | /home/frappe/frappe-bench/apps/frappe/frappe/app.py:
+Site: site1.local
+Form Dict: {
+ "action": "Save",
+ "cmd": "frappe.desk.form.save.savedocs",
+ "doc": "{\"docstatus\":0,\"doctype\":\"Item\",\"name\":\"New Item 1\",\"__islocal\":1,\"__unsaved\":1,\"owner\":\"works@f9tech.com\",\"naming_series\":\"STO-ITEM-.YYYY.-\",\"is_stock_item\":1,\"purchase_in_months\":\"12\",\"manufacturing_date\":\"2020\",\"buying_tax\":\"5%\",\"selling1_tax\":\"5%\",\"bgl_selling2_tax\":\"5%\",\"vendor_location\":\"VZM\",\"valuation_method\":\"\",\"location\":\"WH01\",\"default_material_request_type\":\"Purchase\",\"has_batch_no\":0,\"create_new_batch\":0,\"has_expiry_date\":0,\"retain_sample\":0,\"has_serial_no\":0,\"has_variants\":0,\"variant_based_on\":\"Item Attribute\",\"is_purchase_item\":1,\"min_order_qty\":0,\"is_customer_provided_item\":0,\"country_of_origin\":\"India\",\"inspection_required_before_purchase\":0,\"inspection_required_before_delivery\":0,\"is_sub_contracted_item\":0,\"show_in_website\":0,\"show_variant_in_website\":0,\"publish_in_hub\":0,\"synced_with_hub\":0,\"item_name\":\"test\",\"item_code\":\"test798\",\"description\":\"test798\",\"gst_hsn_code\":\"999900\",\"make\":\"a\",\"model\":\"b\",\"size\":\"c\",\"capacity\":\"d\",\"attribute_5\":\"e\",\"standard_rate\":55,\"item_group\":\"BAKERY EQUIPMENTS\",\"item_sub_sub_group_for_bakery_equipments\":\"BAKERY TOOLS\",\"brand\":\"Hawkins\",\"opening_stock\":9788,\"bay_no_shelf_number\":\"f\",\"schedule_date\":\"2021-02-19\",\"at_sales\":1,\"sales_warrenty_period\":[{\"docstatus\":0,\"doctype\":\"At Sales Table\",\"name\":\"New At Sales Table 1\",\"__islocal\":1,\"__unsaved\":1,\"owner\":\"works@f9tech.com\",\"sales_description\":\"Body\",\"time_period\":\"12\",\"parent\":\"New Item 1\",\"parentfield\":\"sales_warrenty_period\",\"parenttype\":\"Item\",\"idx\":1,\"__unedited\":true}],\"at_purchase\":1,\"no_of_qty\":\"45\",\"time_left_for_expiry\":\"987\",\"basic_price\":\"45\",\"cost_price\":47.25,\"mrp_pm_downwards\":7.407407407407405,\"profit_margin\":\"8\",\"selling_price_without_tax\":48.6,\"selling1_tax_amount\":2.43,\"selling_price_with_tax\":51.03,\"bgl_profit_margin\":\"4\",\"bgl_selling_price_without_tax\":46.8,\"selling2_tax_amount\":2.34,\"bgl_selling_price_with_tax\":49.14,\"bgl_pm_downwards\":3.846153846153854,\"vendor_name\":\"test\",\"barcodes\":[],\"inventory1_qty\":\"654\",\"bay_number\":\"64\",\"inventory2_qty\":\"645\",\"aged\":\"645\",\"sales_uom\":\"645\",\"item_defaults\":[{\"docstatus\":0,\"doctype\":\"Item Default\",\"name\":\"New Item Default 1\",\"__islocal\":1,\"__unsaved\":1,\"owner\":\"works@f9tech.com\",\"parent\":\"New Item 1\",\"parentfield\":\"item_defaults\",\"parenttype\":\"Item\",\"idx\":1,\"__unedited\":false,\"company\":\"BGL Stores\",\"default_warehouse\":\"BGL Warehouses - BS\",\"default_price_list\":\"Indian Rupees\"}],\"stock_uom\":\"Unit\"}"
+}
+Request Error
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 60, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 55, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 22, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 61, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1051, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 296, in _save
+    self.insert()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 245, in insert
+    self.db_insert()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/base_document.py", line 324, in db_insert
+    ), list(d.values()))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database/database.py", line 156, in sql
+    self._cursor.execute(query, values)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'barcode' in 'field list'")

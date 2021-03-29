@@ -1,0 +1,31 @@
+{
+ "allow_rename": 1,
+ "creation": "2020-10-02 18:30:48.448792",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "purchase_in_months"
+ ],
+ "fields": [
+  {
+   "fieldname": "purchase_in_months",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Purchase In Months",
+   "options": "12\n24\n36\n48"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-10-06 11:04:19.114547",
+ "modified_by": "works@f9tech.com",
+ "module": "Stock",
+ "name": "At Purchase Table 1",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

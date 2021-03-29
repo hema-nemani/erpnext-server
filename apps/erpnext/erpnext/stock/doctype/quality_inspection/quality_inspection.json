@@ -1,0 +1,461 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2013-04-30 13:13:03",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "inspection_type",
+  "column_break_3",
+  "select_item_damage",
+  "resolve_at_store_section",
+  "technician_from",
+  "value_for_rectification",
+  "column_break_8",
+  "description",
+  "time_to_complete",
+  "section_break_10",
+  "items",
+  "return_back_to_supplier",
+  "invoice_revice_or_raise_credit_note",
+  "supplier_address",
+  "column_break_16",
+  "supplier_name",
+  "address_display",
+  "return_back_desctiption",
+  "quality_issue",
+  "quality_issue_supplier_address",
+  "column_break_22",
+  "quality_issue_supplier_name",
+  "quality_issue_address_display",
+  "break_section",
+  "report_date",
+  "column_break_4",
+  "inspection_types",
+  "reference_type",
+  "reference_name",
+  "section_break_7",
+  "item_code",
+  "item_serial_no",
+  "batch_no",
+  "sample_size",
+  "column_break1",
+  "item_name",
+  "status",
+  "section_break_14",
+  "inspected_by",
+  "verified_by",
+  "bom_no",
+  "column_break_17",
+  "remarks",
+  "amended_from",
+  "specification_details",
+  "quality_inspection_template",
+  "readings"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "BGL. .QI.-.YY.-.MM.-.DD.-",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "report_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Report Date",
+   "oldfieldname": "report_date",
+   "oldfieldtype": "Date",
+   "print_hide": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inspection_type",
+   "fieldtype": "Select",
+   "label": "Inspection Type",
+   "options": "Item Damage\nQuality Issue"
+  },
+  {
+   "fieldname": "reference_type",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Reference Type",
+   "options": "\nPurchase Receipt\nPurchase Invoice\nDelivery Note\nSales Invoice\nStock Entry",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "hidden": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Reference Name",
+   "oldfieldname": "purchase_receipt_no",
+   "oldfieldtype": "Link",
+   "options": "reference_type",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Item Code",
+   "oldfieldname": "item_code",
+   "oldfieldtype": "Link",
+   "options": "Item",
+   "print_hide": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "item_serial_no",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Item Serial No",
+   "oldfieldname": "item_serial_no",
+   "oldfieldtype": "Link",
+   "options": "Serial No",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Batch No",
+   "oldfieldname": "batch_no",
+   "oldfieldtype": "Link",
+   "options": "Batch",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "sample_size",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Sample Size",
+   "oldfieldname": "sample_size",
+   "oldfieldtype": "Currency",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "column_break1",
+   "fieldtype": "Column Break",
+   "hidden": 1,
+   "oldfieldtype": "Column Break",
+   "print_hide": 1,
+   "width": "50%"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_global_search": 1,
+   "label": "Item Name",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Resolve at Store'",
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "oldfieldname": "description",
+   "oldfieldtype": "Small Text",
+   "width": "300px"
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "print_hide": 1
+  },
+  {
+   "default": "user",
+   "fieldname": "inspected_by",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Inspected By",
+   "oldfieldname": "inspected_by",
+   "oldfieldtype": "Data",
+   "options": "User",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Verified By",
+   "oldfieldname": "verified_by",
+   "oldfieldtype": "Data",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "bom_no",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "BOM No",
+   "options": "BOM",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break",
+   "hidden": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "hidden": 1,
+   "label": "Remarks",
+   "no_copy": 1,
+   "oldfieldname": "remarks",
+   "oldfieldtype": "Text",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "Amended From",
+   "no_copy": 1,
+   "oldfieldname": "amended_from",
+   "oldfieldtype": "Data",
+   "options": "Quality Inspection",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "specification_details",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "oldfieldtype": "Section Break",
+   "options": "Simple",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "quality_inspection_template",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Quality Inspection Template",
+   "options": "Quality Inspection Template",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "readings",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Readings",
+   "oldfieldname": "qa_specification_details",
+   "oldfieldtype": "Table",
+   "options": "Quality Inspection Reading",
+   "print_hide": 1
+  },
+  {
+   "default": "Accepted",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status",
+   "options": "\nAccepted\nRejected",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_item_damage",
+   "fieldtype": "Select",
+   "label": "Select Item Damage",
+   "options": "Resolve at Store\nReturn Back to Supplier\nQI"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Resolve at Store'",
+   "fieldname": "resolve_at_store_section",
+   "fieldtype": "Section Break",
+   "label": "Resolve at store"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Resolve at Store'",
+   "fieldname": "technician_from",
+   "fieldtype": "Select",
+   "label": "Technician From",
+   "options": "Technician from Outside\nTechnician within the Store"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Resolve at Store'",
+   "fieldname": "value_for_rectification",
+   "fieldtype": "Data",
+   "label": "Value for Rectification"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Resolve at Store'",
+   "fieldname": "time_to_complete",
+   "fieldtype": "Datetime",
+   "label": "Time to Complete "
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Resolve at Store'",
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Resolve at Store'",
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Quality Inspection Item"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Return Back to Supplier'",
+   "fieldname": "return_back_to_supplier",
+   "fieldtype": "Section Break",
+   "label": "Return Back to Supplier"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Return Back to Supplier'",
+   "fieldname": "invoice_revice_or_raise_credit_note",
+   "fieldtype": "Data",
+   "label": "Invoice Revice/Raise Credit Note"
+  },
+  {
+   "fieldname": "inspection_types",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Inspection Types",
+   "oldfieldname": "inspection_type",
+   "oldfieldtype": "Select",
+   "options": "\nIncoming\nOutgoing\nIn Process",
+   "print_hide": 1
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Return Back to Supplier'",
+   "fieldname": "supplier_address",
+   "fieldtype": "Link",
+   "label": "Select Supplier Address",
+   "options": "Address"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Return Back to Supplier'",
+   "fetch_from": "supplier_address.address_title",
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "label": "Supplier Name"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Return Back to Supplier'",
+   "fieldname": "address_display",
+   "fieldtype": "Small Text",
+   "label": "Address Display",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Return Back to Supplier'",
+   "fieldname": "return_back_desctiption",
+   "fieldtype": "Data",
+   "label": "Return Back Description"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'QI'",
+   "fieldname": "quality_issue",
+   "fieldtype": "Section Break",
+   "label": "Quality Issue"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'QI'",
+   "fieldname": "quality_issue_supplier_address",
+   "fieldtype": "Link",
+   "label": "Return To Supplier",
+   "options": "Address"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'QI'",
+   "fetch_from": "quality_issue_supplier_address.address_title",
+   "fieldname": "quality_issue_supplier_name",
+   "fieldtype": "Data",
+   "label": "Return Supplier Name"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'QI'",
+   "fieldname": "quality_issue_address_display",
+   "fieldtype": "Small Text",
+   "label": "Return To Supplier Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "break_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Break"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Resolve at Store'",
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'Return Back to Supplier'",
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.select_item_damage == 'QI'",
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "icon": "fa fa-search",
+ "idx": 1,
+ "is_submittable": 1,
+ "modified": "2020-11-11 15:56:11.549074",
+ "modified_by": "works@f9tech.com",
+ "module": "Stock",
+ "name": "Quality Inspection",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Quality Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "item_code, report_date, reference_name",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC"
+}
